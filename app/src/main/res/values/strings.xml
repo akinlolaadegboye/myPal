@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">myPal</string>
+    <string name="user_name">name</string>
+    <string name="userId">id</string>
+</resources>

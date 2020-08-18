@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="false"
+          android:state_selected="false"
+          android:drawable="@drawable/rounded_button_primary_color"
+        />
+  <item android:state_pressed="true">
+
+
+      <shape>
+          <corners android:radius="10dp" >
+          </corners>
+        <gradient android:startColor="@color/colorPrimaryDark"
+            android:endColor="@color/colorPrimaryDark"
+            />
+    </shape>
+</item>
+
+    <item android:state_selected="true"
+        android:state_pressed="false"
+        android:drawable="@drawable/rounded_button_color_primary_color_light"
+      />
+</selector>
