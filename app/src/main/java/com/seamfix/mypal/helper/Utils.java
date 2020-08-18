@@ -1,5 +1,9 @@
 package com.seamfix.mypal.helper;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import static com.seamfix.mypal.Constants.delimiter;
 
 public class Utils {
@@ -20,6 +24,14 @@ public class Utils {
         long dateDifference = currentDate -messageDate;
         long minutes=dateDifference/ (60 * 1000) % 60;
         return minutes;
+    }
+
+    public static boolean isNetworkAvailable(Context cParam) {
+        Context mContext = cParam.getApplicationContext();
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

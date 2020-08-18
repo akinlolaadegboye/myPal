@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.seamfix.mypal.R;
+import com.seamfix.mypal.helper.Utils;
+
 import java.util.ArrayList;
 
 public class ChatInitiationActivity extends Activity {
@@ -78,10 +80,15 @@ public class ChatInitiationActivity extends Activity {
             userIdEditText.setError("Please input the Id");
             return false;
         }
+
         return true;
     }
 
     private void transitionToChatActivity(String nameString, String userIdString) {
+        if(!Utils.isNetworkAvailable(ChatInitiationActivity.this)){
+            Toast.makeText(this, "Please check your internet Connection and try again", Toast.LENGTH_LONG).show();
+            return;
+        }
         Intent intent = new Intent(ChatInitiationActivity.this, ChatActivity.class);
         intent.putExtra("name", nameString);
         intent.putExtra("userId", userIdString);
